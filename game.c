@@ -48,8 +48,9 @@ void game_for_win() /* while not win */
             replace(p, p1, p2, p3);
             output();
         }
-        else 
+        else {
             printf("\nError: wrong index of numbers\n");
+        }
     }
     finish(check_fail());
 }
