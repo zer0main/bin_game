@@ -8,7 +8,7 @@ int p, p1, p2, p3, g;
 
 void start();
 
-int check_index(int, int, int, int);
+int check_index(int, int, int, int), check_range(int, int, int, int);
 
 int check_step(int, int, int, int);
 
@@ -176,9 +176,15 @@ void replace(int a, int b, int c, int d) /* replace numbers desribed by a user *
         table[g-1][b] = 2;
 }
 
+int check_range(int a, int b, int c, int d)
+{
+    if ((a >= 0) && (b >= 0) && (c >= 0) && (d >= 0) && (a < g) && (b < g) &&(c < g) && (d < g))
+        return 1;
+    return 0;
+}
 int check_index(int a, int b, int c, int d)
 {
-    if (((((c == a + 1) || (c == a - 1)) && (d == b)) || (((d == b + 1) || (d == b - 1)) && (c == a))) && ((a >= 0) && (b >= 0) && (c >= 0) && (d >= 0) && (a < g) && (b < g) &&(c < g) && (d < g)))
+    if (((((c == a + 1) || (c == a - 1)) && (d == b)) || (((d == b + 1) || (d == b - 1)) && (c == a))) && check_range(a, b, c, d))
         return 1; 
     return 0;
 }
@@ -186,7 +192,7 @@ int check_index(int a, int b, int c, int d)
 int check_fail()
 {
     int i, x, z, c;
-
+    
     for (i = 0; i < g; i++) {
         for (x = 0; x < g; x++) {
             for (z = 0; z < g; z++) {
