@@ -1,7 +1,8 @@
+#define MAXSIZE 100
+
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
-#define MAXSIZE 100
 
 long long int table[MAXSIZE][MAXSIZE];
 int p, p1, p2, p3, g;
@@ -93,7 +94,7 @@ void game_with_time() /* game with time rules */
     finish(check_fail());
 }
 
-long long int score(long long int q[MAXSIZE][MAXSIZE]) /* funktion counts score on the desk */
+long long int score(long long int q[MAXSIZE][MAXSIZE]) /* function counts score on the desk */
 {
     long long int k, h;
     h = 0;
@@ -124,7 +125,7 @@ void finish(int l)
         printf("You are winner! Your score is %lld\n", score(table));
 }
 
-int check_step(int v, int v1, int v2, int v3) /* funktion checks user's steps */
+int check_step(int v, int v1, int v2, int v3) /* function checks user's steps */
 {
     if (check_index(v, v1, v2, v3)) {
         if (table[v][v1] == table[v2][v3])
