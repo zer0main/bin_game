@@ -211,5 +211,15 @@ int check_fail()
 
 void help()
 {
-    printf("Use options: -w for playing while your score < number\nyou want; -t for playing with time and -s for playing while not fail.\nGame is very easy: choose the index of number1 and index of number2\nusing this format: \"number1 number2 number3 number4\" (where number1\nwith number2 are index of the first number and number3 with\nnumber4 - of the second). The first number must be = the second number\nand it must be near it. When you take this numbers, gravity will work.\n");
+    printf("Use options: -w for playing while your score "
+           "< number\nyou want; -t for playing with time "
+           "and -s for playing while not fail.\nGame is "
+           "very easy: choose the index of number1 and "
+           "index of number2\nusing this format: \"num "
+           "ber1 number2 number3 number4\" (where "
+           "number1\nwith number2 are index of the first num"
+           "ber and number3 with\nnumber4 - of the second). "
+           "The first number must be = the second number\nand"
+           "it must be near it. When you take this numbers, "
+           "gravity will work.\n");
 }
