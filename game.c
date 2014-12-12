@@ -56,7 +56,7 @@ void game_for_win() /* while not win */
     finish(check_fail());
 }
 
-void game_for_score() /* game without win or time rules. Only fail can finish it. */ 
+void game_for_score() /* game without win or time rules. Only fail can finish it. */
 {
     start();
     output();
@@ -72,7 +72,7 @@ void game_for_score() /* game without win or time rules. Only fail can finish it
     finish(check_fail());
 }
 
-void game_with_time() /* game with time rules */ 
+void game_with_time() /* game with time rules */
 {
     printf("How many time you want to play (min)? ");
     int k;
@@ -103,10 +103,10 @@ long long int score(long long int q[MAXSIZE][MAXSIZE]) /* function counts score 
 
     for (i = 0; i < g; i++) {
         for (x = 0; x < g; x++)
-            k += q[i][x]; 
+            k += q[i][x];
         h += k;
         k = 0;
-        }
+    }
     return h;
 }
 
@@ -130,7 +130,8 @@ int check_step(int v, int v1, int v2, int v3) /* function checks user's steps */
     if (check_index(v, v1, v2, v3)) {
         if (table[v][v1] == table[v2][v3])
             return 1;
-    }return 0;
+    }
+    return 0;
 }
 
 void start()
@@ -141,7 +142,7 @@ void start()
     int i, x;
     for (i = 0; i < g; i++) {
         for (x = 0; x < g; x++) {
-            if (rand() <= ((double) (RAND_MAX / 2))) 
+            if (rand() <= ((double) (RAND_MAX / 2)))
                 table[i][x] = 2;
             else
                 table[i][x] = 4;
@@ -171,8 +172,9 @@ void replace(int a, int b, int c, int d) /* replace numbers desribed by a user *
     while (a != g-1) {
         table[a][b] = table[a+1][b];
         a++;
-    }if (rand() <= ((double) (RAND_MAX / 2)))
-         table[g-1][b] = 4;
+    }
+    if (rand() <= ((double) (RAND_MAX / 2)))
+        table[g-1][b] = 4;
     else
         table[g-1][b] = 2;
 }
@@ -186,27 +188,28 @@ int check_range(int a, int b, int c, int d)
 int check_index(int a, int b, int c, int d)
 {
     if (((((c == a + 1) || (c == a - 1)) && (d == b)) || (((d == b + 1) || (d == b - 1)) && (c == a))) && check_range(a, b, c, d))
-        return 1; 
+        return 1;
     return 0;
 }
 
 int check_fail()
 {
     int i, x, z, c;
-    
+
     for (i = 0; i < g; i++) {
         for (x = 0; x < g; x++) {
             for (z = 0; z < g; z++) {
                 for (c = 0; c < g; c++) {
-                    if (check_index(i, x, z, c) && table[z][c] == table[i][x]) 
+                    if (check_index(i, x, z, c) && table[z][c] == table[i][x])
                         return 0;
                 }
             }
         }
-    }return 1;
+    }
+    return 1;
 }
 
 void help()
 {
-    printf("Use options: -w for playing while your score < number\nyou want; -t for playing with time and -s for playing while not fail.\nGame is very easy: choose the index of number1 and index of number2\nusing this format: \"number1 number2 number3 number4\" (where number1\nwith number2 are index of the first number and number3 with\nnumber4 - of the second). The first number must be = the second number\nand it must be near it. When you take this numbers, gravity will work.\n"); 
+    printf("Use options: -w for playing while your score < number\nyou want; -t for playing with time and -s for playing while not fail.\nGame is very easy: choose the index of number1 and index of number2\nusing this format: \"number1 number2 number3 number4\" (where number1\nwith number2 are index of the first number and number3 with\nnumber4 - of the second). The first number must be = the second number\nand it must be near it. When you take this numbers, gravity will work.\n");
 }
